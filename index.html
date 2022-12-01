@@ -73,8 +73,8 @@
                 document.getElementById(idList).innerHTML = title;
             };
 
-            south_america_color = [255, 255, 0];
-            north_america_color = [255, 0, 0];
+            south_america_color = [255, 193, 7]; // bootstrap = bg-warning
+            north_america_color = [220, 53, 69]; // bootstrap = bg-alert
 
             place_1 = createPoint(
                 title = "Machu Picchu",
@@ -114,6 +114,7 @@
                             informations about the place.<br><span class="fw-bold">Have fun!</span>
                         </p>
                         <ul class="list-group scroll">
+                            <li class="list-group-item bg-warning fw-bold">South America</li>
                             <li class="list-group-item" id="place_1"></li>
                             <li class="list-group-item" id="place_2"></li>
                             <li class="list-group-item" id="place_3"></li>
