@@ -22,16 +22,16 @@
             max-height: 150px;
             overflow-y: auto;
         }
-    </style> 
+    </style>
 
     <script src="https://js.arcgis.com/4.25/"></script>
 
     <script>
-        require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig, Map, MapView) {
-            esriConfig.apiKey = "SECRET-TOKEN";
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/GraphicsLayer"], function (esriConfig, Map, MapView, Graphic, GraphicsLayer) {
+            esriConfig.apiKey = "AAPKb5a5e5af00e54955bce1f3280229a215hDZ-_aERiSaO5KxeRlyejFsLAzGnkT4wEeaGuh60phblT7J_AbafkC59BUVyXUUA";
 
             const map = new Map({
-                basemap: "arcgis-navigation" // Basemap layer service
+                basemap: "arcgis-imagery" // Basemap layer service
             });
 
             const view = new MapView({
@@ -40,6 +40,60 @@
                 zoom: 1, // Zoom level
                 container: "viewDiv" // Div element
             });
+
+            function createPoint(title = new String, content = new String, lon = new Number, lat = new Number, color = [new Number], idList = new String) {
+                const graphicsLayer = new GraphicsLayer();
+                map.add(graphicsLayer);
+
+                const placePopup = {
+                    title: this.title,
+                    content: this.content
+                }
+
+                const placePoint = { //Create a point
+                    type: "point",
+                    longitude: this.lon,
+                    latitude: this.lat
+                };
+
+                const placeSimpleMarkerSymbol = {
+                    type: "simple-marker",
+                    color: this.color,  // Orange
+                    outline: null
+                };
+
+                const placePointGraphic = new Graphic({
+                    geometry: placePoint,
+                    symbol: placeSimpleMarkerSymbol,
+                    popupTemplate: placePopup
+                });
+
+                graphicsLayer.add(placePointGraphic);
+
+                document.getElementById(idList).innerHTML = title;
+            };
+
+            south_america_color = [255, 255, 0];
+            north_america_color = [255, 0, 0];
+
+            place_1 = createPoint(
+                title = "Machu Picchu",
+                content = "Located on top of a mountain in the middle of a tropical forest, it is considered the tourist attraction par excellence in Peru. The historic sanctuary is a place that captivates tourists not only for its dazzling architectural beauty, but also for its important historical-cultural legacy, which has led it to be recognized and admired throughout the world.",
+                lon = -72.54509113497029,
+                lat = -13.16445656450498,
+                color = south_america_color,
+                idList = "place_1"
+            );
+
+            place_2 = createPoint(
+                title = "Nevados de Chillán",
+                content = "Situated about 6hrs south of Santiago, Nevados de Chillan (pronounced “Chiyan”) is a resort on the rise. With it’s ever-changing terrain, 1100m of vertical, friendly atmosphere and incredible backcountry access, Chillan is becoming known among South American snowboarders and, more recently, some international riders.",
+                lon = -71.83188288956661,
+                lat = -36.62880950018686,
+                color = south_america_color,
+                idList = "place_2"
+            );
+
         });
     </script>
 
@@ -56,17 +110,32 @@
                     <div class="card-body bg-white">
                         <h4 class="card-title">Places I want to visit</h4>
                         <p class="card-text scroll">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            Explore the map, find the places of the list bellow and click on the point to know more
+                            informations about the place.<br><span class="fw-bold">Have fun!</span>
                         </p>
+                        <ul class="list-group scroll">
+                            <li class="list-group-item" id="place_1"></li>
+                            <li class="list-group-item" id="place_2"></li>
+                            <li class="list-group-item" id="place_3"></li>
+                            <li class="list-group-item" id="place_4"></li>
+                            <li class="list-group-item" id="place_5"></li>
+                            <li class="list-group-item" id="place_6"></li>
+                            <li class="list-group-item" id="place_7"></li>
+                            <li class="list-group-item" id="place_8"></li>
+                            <li class="list-group-item" id="place_9"></li>
+                            <li class="list-group-item" id="place_10"></li>
+                            <li class="list-group-item" id="place_11"></li>
+                            <li class="list-group-item" id="place_12"></li>
+                            <li class="list-group-item" id="place_13"></li>
+                            <li class="list-group-item" id="place_14"></li>
+                            <li class="list-group-item" id="place_15"></li>
+                            <li class="list-group-item" id="place_16"></li>
+                            <li class="list-group-item" id="place_17"></li>
+                            <li class="list-group-item" id="place_18"></li>
+                            <li class="list-group-item" id="place_19"></li>
+                            <li class="list-group-item" id="place_20"></li>
+                        </ul>
+
                         <p class="card-text"><small class="text-muted">Created at November 30th 2022</small></p>
                     </div>
                     <div class="card-footer text-center text-bg-dark">
