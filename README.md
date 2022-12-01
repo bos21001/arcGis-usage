@@ -7,7 +7,7 @@ Hey everyone, I created this repository to start using ArcGIS API. I pointed 20 
 > To run this repository, open the `index.html` in any web browser.
 
 
-[Software Demo Video](http://youtube.link.goes.here) # Coming soon!
+[Software Demo Video](https://youtu.be/smQudL9MdJE)
 
 # Development Environment
 
