@@ -1,0 +1,11 @@
+#viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 400px;
+    max-width: 800px;
+}
+
+.scroll {
+    max-height: 150px;
+    overflow-y: auto;
+}
