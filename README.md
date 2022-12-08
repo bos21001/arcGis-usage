@@ -6,7 +6,7 @@ Hey everyone, I created this repository to start using ArcGIS API. I pointed 20 
 
 > To run this repository, open the `index.html` in any web browser.
 
-> Or open this link in any browser.
+> Or open this link in any browser [https://bos21001.github.io/arcGis-usage](https://bos21001.github.io/arcGis-usage).
 
 
 [Software Demo Video](https://youtu.be/smQudL9MdJE)
